@@ -25,3 +25,5 @@ output/
 build/
 dist/
 paddleocr.egg-info/
+train_data/ICDAR2017_train
+train_data/ICDAR2017_test

@@ -1,0 +1,22 @@
+TrainReader:
+  reader_function: ppocr.data.det.dataset_traversal,TrainReader
+  process_function: ppocr.data.det.db_process,DBProcessTrain
+  num_workers: 8
+  img_set_dir: ./train_data/ICDAR2017_train/
+  label_file_path: ./train_data/train_label.txt
+
+EvalReader:
+  reader_function: ppocr.data.det.dataset_traversal,EvalTestReader
+  process_function: ppocr.data.det.db_process,DBProcessTest
+  img_set_dir: ./train_data/ICDAR2017_test/
+  label_file_path: ./train_data/train_test.txt
+  test_image_shape: [736, 1280]
+  
+TestReader:
+  reader_function: ppocr.data.det.dataset_traversal,EvalTestReader
+  process_function: ppocr.data.det.db_process,DBProcessTest
+  infer_img:
+  img_set_dir: ./train_data/ICDAR2017_test/
+  label_file_path: ./train_data/train_test.txt
+  test_image_shape: [736, 1280]
+  do_eval: True
